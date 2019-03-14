@@ -8,9 +8,11 @@ Practical example to configure a docker container to mount a google bucket into 
 
 
 This document will illustrate:
-a) how to configure gcsfuse within your docker container
+
+* How to configure gcsfuse within your docker container
 
 It will not cover:
+
 * How to create GCE VMs or buckets
 
 ## setup
@@ -27,6 +29,7 @@ This example docker file:
 * specifies that the user's `service_account.json` credentials should be mounted in the `/config` volume.
 * launches a shell script to authenticate a start you service
 
+`Dockerfile`
 ```
 FROM python:3.7.2
 
@@ -59,12 +62,13 @@ This example entrypoint authenticates to google, mounts the volume
 
 You can specify the following environmental variables:
 
-PROJECT=<the GCE project that contains the service account>
-FUSE_PATH=<the directory to mount the bucket into>
-BUCKET_NAME=<the bucket name>
+* PROJECT=[the GCE project that contains the service account]()
+* FUSE_PATH=[the directory to mount the bucket into]()
+* BUCKET_NAME=[the bucket name]()
 
 Note:  the `--implicit-dirs` flag is necessary to parse object prefixes into directory names.
 
+`/docker-start.sh`
 ```
 #!/usr/bin/env bash
 
