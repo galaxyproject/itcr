@@ -18,3 +18,4 @@
 
 ## Examples
 * [gen3 aware workspace](docs/fence/README.md)
+* [gcsfuse docker](docs/gcsfuse/README.md)
